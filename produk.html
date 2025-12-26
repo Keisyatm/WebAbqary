@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Produk</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #eaf6ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* HEADER*/
+header {
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+/* Navbar di dalam header */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Logo kiri */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Menu navigasi tengah */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ff6600;
+}
+
+/* Pencarian di kanan */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+.search-bar button {
+  background-color: #7eddfa;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.judul{
+  text-align: center;
+  max-width: 800px;
+  margin: 50px auto;
+
+}
+    .catalog {
+      max-width: 800px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.3s;
+      padding-bottom: 10px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Gambar  */
+    .card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background-color: #f5faff;
+  padding: 30px;
+}
+
+
+
+    .card p {
+      padding: 8px 0;
+      color: #0d47a1;
+      font-weight: 600;
+      font-size: 1.05em;
+    }
+
+    .quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .quantity span {
+      background-color: #0d47a1;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .quantity input {
+      width: 40px;
+      text-align: center;
+      font-size: 1em;
+      border: 1px solid #90caf9;
+      border-radius: 8px;
+      padding: 5px;
+    }
+
+    .btn-order {
+      display: block;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 25px;
+      margin: 25px auto;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-order:hover {
+      background-color: #1976d2;
+    }
+
+    .footer {
+  background-color: #648ee2;
+  color: #ffffff;
+  padding: 20px 0;
+  font-size: 0.9em;
+  border-top: 1px solid #6492dd;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+.footer-section h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+.footer-section p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.footer-section a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  margin-top: 15px;
+  border-top: 1px solid #6492dd;
+  color: #d3d2d2fd;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    min-width: unset;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-bar {
+    margin-top: 10px;
+  }
+}
+    
+
+    /* RESPONSIVE */
+    @media screen and (max-width: 600px) {
+      .catalog {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+   <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="logo.jpeg" alt="Logo">
+        <span>ABQARY STREETFOOD</span>
+      </div>
+
+      <!-- Menu Navigasi -->
+      <div class="nav-links">
+        <a href="Beranda.html">Home</a>
+        <a href="produk.html">Produk</a>
+        <a href="keranjang.html">Keranjang</a>
+      </div>
+
+      <!-- Pencarian -->
+      <form class="search-bar">
+        <input type="text" placeholder="Cari....">
+        <button type="submit">🔍</button>
+      </form>
+  </header>
+
+  <!-- Judul -->
+  <div class="judul">
+  <h1>Katalog Produk</h1>
+  </div>
+
+  <!-- Daftar Produk -->
+  <div class="catalog">
+    <div class="card">
+      <img src="risoles .jpg" alt="Risol Mayo">
+      <p>Risol Mayo</p>
+      <p>Rp 4.000</p>
+      <div class="quantity">
+        <span onclick="changeQty('risolMayo', -1)">−</span>
+        <input type="text" id="risolMayo" value="0" readonly>
+        <span onclick="changeQty('risolMayo', 1)">+</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="risol cokelat.jpg" alt="Risol Coklat">
+      <p>Risol Coklat</p>
+      <p>Rp 4.000</p>
+      <div class="quantity">
+        <span onclick="changeQty('risolCoklat', -1)">−</span>
+        <input type="text" id="risolCoklat" value="0" readonly>
+        <span onclick="changeQty('risolCoklat', 1)">+</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="dimsum.jpg" alt="Dimsum">
+      <p>Dimsum</p>
+      <p>Rp 16.000</p>
+      <div class="quantity">
+        <span onclick="changeQty('dimsum', -1)">−</span>
+        <input type="text" id="dimsum" value="0" readonly>
+        <span onclick="changeQty('dimsum', 1)">+</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="dimsum mentai.jpg" alt="Dimsum Mentai">
+      <p>Dimsum Mentai</p>
+      <p>Rp 22.000</p>
+      <div class="quantity">
+        <span onclick="changeQty('dimsumMentai', -1)">−</span>
+        <input type="text" id="dimsumMentai" value="0" readonly>
+        <span onclick="changeQty('dimsumMentai', 1)">+</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tombol keranjang -->
+   <div class="nav-links"></div>
+      <a href="keranjang.html"> <button class="btn-order" onclick="order()">Pesan Sekarang</button></a> 
+  </div> 
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section school-name">
+        <h2>ABQARY STREETFOOD</h2>
+        <p>Hadir dengan cita rasa jajanan khas Indonesia.</p>
+        <p>Dibuat dari bahan segar dan penuh rasa.</p>
+      </div>
+
+      <div class="footer-section contact-info">
+
+        <p><strong>Telepon:</strong> +62 831 1606 5607</p>
+        <p><strong>Alamat:</strong> Kp. Lingga Jaya No.4, Rancaekek, Bandung</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 ABQARY STREETFOOD</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+<script>
+  function changeQty(id, value) {
+    let input = document.getElementById(id);
+    let current = parseInt(input.value);
+
+    let newValue = current + value;
+
+    if (newValue < 0) {
+        newValue = 0;
+    }
+
+    input.value = newValue;
+}
+</script>
+
+<script>
+  // Fungsi pencarian
+  const searchInput = document.querySelector(".search-bar input");
+  const searchForm = document.querySelector(".search-bar");
+  const cards = document.querySelectorAll(".card");
+
+  searchForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let keyword = searchInput.value.toLowerCase();
+
+    cards.forEach(card => {
+      let namaProduk = card.querySelector("p").textContent.toLowerCase();
+      card.style.display = namaProduk.includes(keyword) ? "block" : "none";
+    });
+  });
+
+  searchInput.addEventListener("keyup", function() {
+    if (searchInput.value === "") {
+      cards.forEach(card => card.style.display = "block");
+    }
+  });
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Desain Keranjang</title>
+<style>
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #0f4c81, #6fb6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FRAME UTAMA */
+.wrapper {
+    width: 900px;
+    background: #8cc4ff;
+    padding: 40px 0;
+    position: relative;
+}
+
+/* PITA JUDUL */
+.ribbon {
+    background: #ffe1a8;
+    width: 420px;
+    margin: 0 auto 25px;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: #1c4f82;
+    position: relative;
+}
+
+.ribbon::before,
+.ribbon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border-top: 32px solid transparent;
+    border-bottom: 32px solid transparent;
+}
+
+.ribbon::before {
+    left: -35px;
+    border-right: 35px solid #ffe1a8;
+}
+
+.ribbon::after {
+    right: -35px;
+    border-left: 35px solid #ffe1a8;
+}
+
+/* CARD */
+.card {
+    width: 520px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ITEM */
+.item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info input {
+    width: 80px;
+    padding: 4px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+/* TOTAL */
+.total {
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* FORM */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    background: #0b75ff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005fe0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="ribbon">Desain Keranjang</div>
+
+    <div class="card">
+        <h2>Pesanan Saya</h2>
+
+        <!-- ITEM 1 -->
+        <div class="item">
+            <img src="risol cokelat.jpg">
+            <div class="item-info">
+                <h4>Risoles Coklat</h4>
+                Jumlah:<br>
+                <input type="number" id="qtyCoklat" value="1">
+            </div>
+            <div class="price">Rp4.000</div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="item">
+            <img src="risoles .jpg">
+            <div class="item-info">
+                <h4>Risoles Mayo</h4>
+                Jumlah:<br>
+                <input type="number" id="qtyMayo" value="1">
+            </div>
+            <div class="price">Rp8.000</div>
+        </div>
+
+        <div class="total">Total: <span id="totalHarga">Rp12.000</span></div>
+
+        <div class="form-group">
+            <input type="text" id="nama" placeholder="Masukkan nama">
+        </div> 
+        <div class="form-group">
+            <input type="text" id="alamat" placeholder="Masukkan alamat">
+        </div>
+        <div class="form-group">
+            <input type="text" id="telp" placeholder="Masukkan nomor telepon">
+        </div>
+
+        <button onclick="kirimWA()">Kirim Pesanan ke WhatsApp</button>
+    </div>
+</div>
+
+<script>
+function kirimWA() {
+    const nama = document.getElementById("nama").value;
+    const alamat = document.getElementById("alamat").value;
+    const telp = document.getElementById("telp").value;
+
+    const qtyCoklat = document.getElementById("qtyCoklat").value;
+    const qtyMayo = document.getElementById("qtyMayo").value;
+
+    const total = (qtyCoklat * 4000) + (qtyMayo * 4000);
+
+    const nomorWA = "6289526646077"; // GANTI NOMOR INI
+
+    const pesan = `
+Halo, saya mau pesan:
+- Risoles Coklat: ${qtyCoklat}
+- Risoles Mayo: ${qtyMayo}
+
+Total: Rp${total.toLocaleString("id-ID")}
+
+Nama: ${nama}
+Alamat: ${alamat}
+No HP: ${telp}
+`;
+
+    const url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(pesan);
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
